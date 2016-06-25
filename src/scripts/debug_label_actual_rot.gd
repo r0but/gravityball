@@ -1,7 +1,7 @@
 extends Label
 
 func _ready():
-	set_fixed_process(true)
+	set_fixed_process(false)
 
 func _fixed_process(delta):
-	set_text(str(get_node("../player").get_rot()) + "\n" + str(get_node("../player").target_angle))
+	pass
