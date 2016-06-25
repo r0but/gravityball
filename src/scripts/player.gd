@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 var MOVE_SPEED = 250
 var ROT_SPEED = 6.28318
+var TURN_THRESHOLD = .05
+
 var target_angle = 0
 
 func _ready():
@@ -22,8 +24,14 @@ func _fixed_process(delta):
 	
 	target_angle = get_viewport().get_mouse_pos().angle_to_point(get_pos())
 	
-	if not Input.is_action_pressed("dbg_hold"):
-		if get_rot() - target_angle > .05:
-			set_rot(get_rot() - ROT_SPEED * delta)
-		elif get_rot() - target_angle < -.05:
-			set_rot(get_rot() + ROT_SPEED * delta)
+	if get_rot() - target_angle > TURN_THRESHOLD or get_rot() - target_angle < -TURN_THRESHOLD:
+		if get_rot() >= 0:
+			if target_angle < get_rot() - 3.14159 or target_angle > get_rot(): 
+				set_rot(get_rot() + ROT_SPEED * delta)
+			else:
+				set_rot(get_rot() - ROT_SPEED * delta)
+		elif get_rot() < 0:
+			if target_angle < get_rot() + 3.14159 and target_angle > get_rot():
+				set_rot(get_rot() + ROT_SPEED * delta)
+			else:
+				set_rot(get_rot() - ROT_SPEED * delta)
