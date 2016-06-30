@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-var MOVE_SPEED = 250
-var ROT_SPEED = 3.14159 * 2.75
-var TURN_STEP_SIZE = 3.14159 / 30
+var MOVE_SPEED = 600
+var ROT_SPEED = 3.14159 * 5
+var TURN_THRESHOLD = 3.14159 / 12
 
 func _ready():
 	set_fixed_process(true)
@@ -10,13 +10,13 @@ func _ready():
 func _fixed_process(delta):	
 	move(take_movement_input() * MOVE_SPEED * delta)
 	
-	#deliberate_rotate(delta, take_rot_input())
-	direct_rotate(take_rot_input())
+	deliberate_rotate(delta, take_rot_input())
+	#direct_rotate(take_rot_input())
 
 func deliberate_rotate(delta, target_vector):
 	if target_vector.length() > .1:
 		var target_angle = target_vector.angle()
-		if get_rot() - target_angle > TURN_STEP_SIZE or get_rot() - target_angle < -TURN_STEP_SIZE:
+		if get_rot() - target_angle > TURN_THRESHOLD or get_rot() - target_angle < -TURN_THRESHOLD:
 			turn(delta, target_angle)
 
 func direct_rotate(target_vector):
