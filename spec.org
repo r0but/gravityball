@@ -34,11 +34,11 @@ if get_rot() - target_angle > TURN_THRESHOLD or get_rot() - target_angle < -TURN
 
 * Input notes
 ** Axes
-  1. Left Stick Horizontal - JOY_AXIS_0
-  2. Left Stick Vertical - JOY_AXIS_1
-  3. Right Stick Horizontal - JOY_AXIS_2
-  4. Right Stick Vertical - JOY_AXIS_3
-  5. Joystick Left Trigger - JOY_AXIS_6
-  6. Joystick Right Trigger - JOY_AXIS_7
+   1. Left Stick Horizontal - JOY_AXIS_0
+   2. Left Stick Vertical - JOY_AXIS_1
+   3. Right Stick Horizontal - JOY_AXIS_2
+   4. Right Stick Vertical - JOY_AXIS_3
+   5. Joystick Left Trigger - JOY_AXIS_6
+   6. Joystick Right Trigger - JOY_AXIS_7
 ** Functions
-   Input.get_joy_axis(int device, int axis)
+   1. Input.get_joy_axis(int device, int axis)
