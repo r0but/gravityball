@@ -4,7 +4,11 @@
     2-player game inspired by Windjammers. There is a single ball and a goal on either side corresponding to each player. The ball starts in the middle and fires off left or right at a random angle acute to the horizontal. Each player has a bat that extends a fixed length from their location, and the player rotates to control where the bat is pointing. There is a goal on the left and right sides of the arena, one for each player. There can be multiple arenas, each with different shapes and sizes for the goals and different obstacles in the middle. The ball will go faster with each regular hit, but the players can push a button for a power hit, or another button to stick the ball to the bat for more control, but it will slow the ball down.
 *** Controls
     The left stick controls the player's location, and the right stick controls the angle their bat is at. When the player points in a direction, their character swivels to point the bat at the same direction. There is a quick rotation time, but it doesn't immediately snap to the angle.
+<<<<<<< HEAD
 * Development progress [6/8]
+=======
+* Development progress [5/8]
+>>>>>>> ea83899c007deb351b547ee30f09c2c019e41eb3
 ** DONE Player movement
 ** DONE Player rotation
 ** DONE Gamepad controls
