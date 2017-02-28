@@ -1,4 +1,4 @@
-* Development progress [2/5]
+* Development progress [2/6]
 ** DONE Player movement
 ** TODO Gamepad controls
 *** DONE Movement
@@ -9,7 +9,16 @@
 ** TODO Ball movement (basic)
 *** TODO Ball collision
 *** TODO Ball gravity
+    This should probably just be another vector applied to the ball's movement vector before calling the move() method. The vector equation for gravity is as follows: \\
+    F_12 = -G * ( (m_1 * m_2) / ( | r_2 - r_1 |^2 ) ) * r_12hat \\
+    Where: 
+    - F_12 is a vector representing the force applied *to* object 2 due to object 1
+    - G is the gravitational constant: 6.67408 * 10^-11
+    - r_12hat is the unit vector from object 1 to 2: (r_2 - r_1) / |r_2 - r_1|
+    - r_1 and r_2 are vectors representing the location of object 1 and object 2 respectively
+
 ** DONE Make a level
+** TODO Make a more interesting level
 ** TODO Make AI
 
 * Main idea
