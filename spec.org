@@ -19,6 +19,7 @@
 
 ** DONE Make a level
 ** TODO Make a more interesting level
+   Maybe a level with its own wacky gravitational field implemented with a vector field?
 ** TODO Make AI
 
 * Main idea
