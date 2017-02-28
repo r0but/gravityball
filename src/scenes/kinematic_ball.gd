@@ -24,4 +24,4 @@ func _fixed_process(delta):
 				speed = MAX_SPEED
 
 func get_gravity_vector(player_vector, player_mass):
-	return GRAV_CONST * ( (
+	return GRAV_CONST * ( (player_mass * mass) / (
