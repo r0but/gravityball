@@ -16,11 +16,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	if get_node("rigid_ball").get_pos().x < 0:
+	if get_node("kinematic_ball").get_pos().x < 0:
 		player_2_score += 1
 		get_node("player_2_score").set_text(str(player_2_score))
 		ball_reset()
-	elif get_node("rigid_ball").get_pos().x > 1024:
+	elif get_node("kinematic_ball").get_pos().x > 1024:
 		player_1_score += 1
 		get_node("player_1_score").set_text(str(player_1_score))
 		ball_reset()
@@ -37,8 +37,8 @@ func game_reset():
 	ball_reset()
 
 func ball_reset():
-	#kine_ball_reset()
-	rigid_ball_reset()
+	kine_ball_reset()
+	#rigid_ball_reset()
 
 func kine_ball_reset():
 	get_node("kinematic_ball").set_pos(Vector2(530, 300))

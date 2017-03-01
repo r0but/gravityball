@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 const MAX_SPEED = 1250
 const SPEED_INCREMENT = 50
-const GRAV_CONST = 6.67408e-11
-#const GRAV_CONST = 1
+#const GRAV_CONST = 6.67408e-11
+const GRAV_CONST = 1
 
 var move_vector = Vector2(3, 1)
 var mass = 1
@@ -27,6 +27,12 @@ func _fixed_process(delta):
 				speed = MAX_SPEED
 
 func get_gravity_vector(player_vector, player_mass):
-	var unit_vector_diff = (get_pos() - player_vector) / abs(get_pos() - player_vector)
+	var abs_diff = Vector2()
+	abs_diff.x = abs(get_global_pos().x - player_vector.x)
+	abs_diff.y = abs(get_global_pos().y - player_vector.y)
+	
+	var unit_vector_diff = (get_global_pos() - player_vector) / abs_diff
 	unit_vector_diff = unit_vector_diff.normalized()
-	return GRAV_CONST * ( (player_mass * mass) / abs(get_pos() - player_vector) ) * unit_vector_diff
+	var grav_vector = GRAV_CONST * ( (player_mass * mass) * (1 / abs_diff) ) * unit_vector_diff
+	print("grav vector: ", grav_vector)
+	return grav_vector
