@@ -20,9 +20,8 @@ func _fixed_process(delta):
 	if is_colliding():
 		print("Collision detected: ", collision_vector)
 		print("Move vector before: ", move_vector)
-		move_vector = get_collision_normal().reflect(collision_vector)
+		move_vector = get_collision_normal().reflect(collision_vector).normalized() * move_vector.length()
 		print("Move vector after: ", move_vector)
-		move(move_vector)
 
 func get_gravity_vector(player_vector, player_mass):
 	var accel = Vector2()

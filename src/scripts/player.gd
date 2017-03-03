@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var MOVE_SPEED = 600
 
-var grav_mass = 50000
+var grav_mass = 100000
 var down_action = "a_p1_down"
 var up_action = "a_p1_up"
 var right_action = "a_p1_right"
@@ -23,8 +23,8 @@ func _fixed_process(delta):
 	move(take_movement_input() * MOVE_SPEED * delta)
 
 func take_movement_input():
-	return digital_movement_input()
-	#return analog_movement_input()
+	#return digital_movement_input()
+	return analog_movement_input()
 
 func digital_movement_input():
 	var move_vector = Vector2(0, 0)
