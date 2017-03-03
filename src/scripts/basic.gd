@@ -5,12 +5,14 @@ var player_2_score = 0
 
 var p1_start = Vector2()
 var p2_start = Vector2()
+var ball_start = Vector2()
 
 func _ready():
 	set_process(true)
 	
 	p1_start = get_node("player_1").get_global_pos()
 	p2_start = get_node("player_2").get_global_pos()
+	ball_start = get_node("kinematic_ball").get_global_pos()
 	
 	game_reset()
 	
@@ -40,14 +42,5 @@ func game_reset():
 	ball_reset()
 
 func ball_reset():
-	kine_ball_reset()
-	#rigid_ball_reset()
-
-func kine_ball_reset():
-	get_node("kinematic_ball").set_pos(Vector2(530, 300))
-	get_node("kinematic_ball").move_vector = Vector2(3, 1)
-
-func rigid_ball_reset():
-	get_node("rigid_ball").set_pos(Vector2(530, 300))
-	get_node("rigid_ball").set_linear_velocity(Vector2(0, 0))
-	get_node("rigid_ball").set_angular_velocity(0)
+	get_node("kinematic_ball").set_pos(ball_start)
+	get_node("kinematic_ball").move_vector = Vector2(0, -75)

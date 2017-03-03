@@ -13,15 +13,14 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
-	var grav_vector = get_gravity_vector(get_node("../player_1").get_pos(), get_node("../player_1").grav_mass)
-	move_vector += grav_vector
+	var grav_vector_1 = get_gravity_vector(get_node("../player_1").get_pos(), get_node("../player_1").grav_mass)
+	var grav_vector_2 = get_gravity_vector(get_node("../player_2").get_pos(), get_node("../player_2").grav_mass)
+	move_vector += grav_vector_1 + grav_vector_2
 	var collision_vector = move(move_vector * delta)
 	
 	if is_colliding():
-		print("Collision detected: ", collision_vector)
-		print("Move vector before: ", move_vector)
 		move_vector = get_collision_normal().reflect(collision_vector).normalized() * move_vector.length()
-		print("Move vector after: ", move_vector)
+		move(get_collision_normal().reflect(collision_vector))
 
 func get_gravity_vector(player_vector, player_mass):
 	var accel = Vector2()
