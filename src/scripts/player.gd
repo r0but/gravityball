@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var MOVE_SPEED = 600
 
-var grav_mass = 20
+var grav_mass = 5000
 var down_action = "a_p1_down"
 var up_action = "a_p1_up"
 var right_action = "a_p1_right"
