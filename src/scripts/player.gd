@@ -37,7 +37,10 @@ func _fixed_process(delta):
 		grav_mass = GRAV_LOW
 	else:
 		grav_mass = GRAV_MID
-	move(take_movement_input() * MOVE_SPEED * delta)
+	var leftover = move(take_movement_input() * MOVE_SPEED * delta)
+	if (is_colliding()):
+		leftover = get_collision_normal().slide(leftover)
+		move(leftover)
 
 func take_movement_input():
 	#return digital_movement_input()
