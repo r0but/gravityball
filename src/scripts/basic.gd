@@ -10,9 +10,9 @@ var ball_start = Vector2()
 func _ready():
 	set_process(true)
 	
-	p1_start = get_node("player_1").get_global_pos()
-	p2_start = get_node("player_2").get_global_pos()
-	ball_start = get_node("kinematic_ball").get_global_pos()
+	p1_start = get_node("player_1").get_pos()
+	p2_start = get_node("player_2").get_pos()
+	ball_start = get_node("kinematic_ball").get_pos()
 	
 	game_reset()
 	
