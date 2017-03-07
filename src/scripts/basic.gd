@@ -16,6 +16,7 @@ func _ready():
 	
 	game_reset()
 	
+	# probably shouldn't handle this stuff here but w/e here it is
 	var p2_texture = preload("res://assets/p_red.png")
 	get_node("player_2").set_controller(2)
 	get_node("player_2/person_sprite").set_texture(p2_texture)
