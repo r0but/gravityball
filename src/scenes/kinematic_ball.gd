@@ -24,7 +24,7 @@ func _fixed_process(delta):
 
 func get_gravity_vector(player_vector, player_mass):
 	var accel = Vector2()
-	var force = -GRAV_CONST * ( (player_mass * grav_mass) / get_global_pos().distance_squared_to(player_vector) ) * (get_global_pos() - player_vector).normalized()
+	var force = -GRAV_CONST * ( (player_mass * grav_mass) / get_pos().distance_squared_to(player_vector) ) * (get_pos() - player_vector).normalized()
 	accel.x = force.x / grav_mass
 	accel.y = force.y / grav_mass
 	
