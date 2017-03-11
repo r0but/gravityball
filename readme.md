@@ -1,1 +1,1 @@
-Whackaball: A game about whacking a ball!
+Gravityball: A game about gravitying a ball!
