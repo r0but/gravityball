@@ -1,2 +1,5 @@
 # OS-X crap
 .DS_Store
+
+# Executables
+*.exe
