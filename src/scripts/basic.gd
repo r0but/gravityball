@@ -8,7 +8,7 @@ var p2_start = Vector2()
 var ball_start = Vector2()
 
 func _ready():
-	set_process(true)
+	set_fixed_process(true)
 	
 	p1_start = get_node("player_1").get_pos()
 	p2_start = get_node("player_2").get_pos()
@@ -21,7 +21,7 @@ func _ready():
 	get_node("player_2").set_controller(2)
 	get_node("player_2/person_sprite").set_texture(p2_texture)
 
-func _process(delta):
+func _fixed_process(delta):
 	if get_node("kinematic_ball").get_pos().x < 0:
 		player_2_score += 1
 		get_node("player_2_score").set_text(str(player_2_score))

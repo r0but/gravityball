@@ -19,7 +19,7 @@ func _fixed_process(delta):
 	var collision_vector = move(move_vector * delta)
 	
 	if is_colliding():
-		move_vector = get_collision_normal().reflect(collision_vector).normalized() * move_vector.length()
+		move_vector = .9 * get_collision_normal().reflect(collision_vector).normalized() * move_vector.length()
 		move(get_collision_normal().reflect(collision_vector))
 
 func get_gravity_vector(player_vector, player_mass):
